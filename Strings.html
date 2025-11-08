@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PHP Basic Programs</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #1c1f24;
+        color: #ffffff;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+        background-color: #2a2f38;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        width: 100%;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+        font-size: 1.8em;
+        font-weight: bold;
+        color: #00ffff;
+    }
+    .logo img {
+        width: 45px;
+        height: 45px;
+        margin-right: 10px;
+        border-radius: 8px;
+    }
+    .buttons a {
+        background-color: #2a2f38;
+        color: #ffffff;
+        padding: 10px 20px;
+        margin-left: 15px;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: 0.3s;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+        text-decoration: none;
+    }
+    .buttons a:hover {
+        background-color: #00ffff;
+        color: #1c1f24;
+        transform: translateY(-2px);
+    }
+    header {
+        text-align: center;
+        margin: 30px 0 10px 0;
+    }
+    header h1 {
+        font-size: 2.5em;
+        color: #00ffff;
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+    }
+    .tabs {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        background-color: #2a2f38;
+        border-radius: 10px;
+        margin-top: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+    }
+    .tab {
+        flex: 1;
+        padding: 15px;
+        text-align: center;
+        cursor: pointer;
+        font-weight: bold;
+        color: #00ffff;
+        transition: background-color 0.3s, color 0.3s;
+    }
+    .tab:hover {
+        background-color: #00ffff;
+        color: #1c1f24;
+    }
+    .container {
+        display: flex;
+        width: 90%;
+        max-width: 1200px;
+        gap: 20px;
+        margin-top: 30px;
+    }
+    .questions {
+        flex: 1;
+        background-color: #2a2f38;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 6px 15px rgba(0, 255, 255, 0.2);
+        border: 1px solid rgba(0, 255, 255, 0.3);
+    }
+    .questions h2 {
+        color: #00ffff;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #00ffff;
+        display: inline-block;
+        padding-bottom: 5px;
+    }
+    .questions ol {
+        list-style: none;
+        padding-left: 10px;
+    }
+    .questions li {
+        font-size: 1.1em;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+        cursor: pointer;
+        color: #cfd8dc;
+        transition: color 0.3s;
+    }
+    .questions li:hover {
+        color: #00ffff;
+        font-weight: bold;
+    }
+    .code-output {
+        display: none;
+        flex-direction: column;
+        flex: 1;
+        gap: 15px;
+    }
+    .code-frame, .output-frame {
+        background-color: #2a2f38;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid rgba(0, 255, 255, 0.3);
+        box-shadow: 0 4px 12px rgba(0, 255, 255, 0.1);
+    }
+    .code-frame h2, .output-frame h2 {
+        color: #00ffff;
+        margin: 0 0 10px 0;
+    }
+    textarea {
+        width: 100%;
+        height: 200px;
+        background-color: #1c1f24;
+        color: #00ffff;
+        padding: 10px;
+        border: none;
+        border-radius: 8px;
+        resize: none;
+        font-family: 'Courier New', monospace;
+        outline: none;
+        box-sizing: border-box;
+    }
+    footer {
+        background-color: #2a2f38;
+        color: #888;
+        width: 100%;
+        text-align: center;
+        padding: 15px 0;
+        margin-top: 40px;
+        border-top: 1px solid rgba(0, 255, 255, 0.2);
+    }
+    footer a {
+        color: #00ffff;
+        text-decoration: none;
+    }
+    footer a:hover {
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+    <div class="logo">
+        <img src="https://www.php.net/images/logos/new-php-logo.svg" alt="PHP Logo">
+        PHP Tech Portal
+    </div>
+    <div class="buttons">
+        <a href="index.html">Home</a>
+        <a href="home.html">Programs</a>
+    </div>
+</div>
+
+<header>
+ 
+    <div class="tabs">
+        <div class="tab" onclick="location.href='basicprogram.html'">Basic Programs</div>
+        <div class="tab" onclick="location.href='Arrays.html'">Arrays</div>
+        <div class="tab" onclick="location.href='Loops.html'">Loops</div>
+        <div class="tab" onclick="location.href='Functions.html'">Functions</div>
+        <div class="tab" onclick="location.href='Strings.html'">Strings</div>
+        <div class="tab" onclick="location.href='FileHandling.html'">File Handling</div>
+        <div class="tab" onclick="location.href='FormHandling.html'">Form Handling</div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="questions">
+        <h2>Questions</h2>
+        <ol>
+            <li onclick="toggleCode(0)">1. Write a program in PHP to count the total number of characters in a given string</li>
+            <li onclick="toggleCode(1)">2. Write a program in PHP to count the total number of characters in a given string except blank spaces</li>
+            <li onclick="toggleCode(2)">3. Write a program in PHP to reverse the given string without using strrev() function.</li>
+            <li onclick="toggleCode(3)">4. Write a program in PHP to count the total number of vowels in a string</li>
+            <li onclick="toggleCode(4)">5.Write a program in PHP to remove all the white spaces from a string.</li>
+        </ol>
+    </div>
+
+    <!-- Code-output sections -->
+    <div class="code-output" id="code-output-0">
+        <div class="code-frame">
+            <h2>1. Code</h2>
+            <textarea readonly>
+?php
+// Given string
+$string = "Hello, World!";
+// Count total characters
+$totalChars = strlen($string);
+echo "Given string: \"$string\" <br>";
+echo "Total number of characters: $totalChars";
+?></textarea>
+        </div>
+        <div class="output-frame">
+            <h2>Output</h2>
+            <textarea readonly>
+Given string: "Hello, World!"
+Total number of characters: 13
+            </textarea>
+        </div>
+    </div>
+
+    <div class="code-output" id="code-output-1">
+        <div class="code-frame">
+            <h2>2. Code</h2>
+            <textarea readonly>
+?php
+// Given string
+$string = "Hello World from PHP"
+// Remove spaces from the string
+$stringWithoutSpaces = str_replace(" ", "", $string);
+// Count total characters excluding spaces
+$totalChars = strlen($stringWithoutSpaces);
+echo "Given string: \"$string\" <br>";
+echo "Total number of characters (excluding spaces): $totalChars";
+?></textarea>
+        </div>
+        <div class="output-frame">
+            <h2>Output</h2>
+            <textarea readonly>
+Given string: "Hello World from PHP"
+Total number of characters (excluding spaces): 17
+            </textarea>
+        </div>
+    </div>
+
+    <div class="code-output" id="code-output-2">
+        <div class="code-frame">
+            <h2>3. Code</h2>
+            <textarea readonly>?php
+// Given string
+$string = "Hello PHP";
+// Initialize reversed string
+$reversed = "";
+// Find length of the string
+$length = strlen($string);
+// Loop from end to start
+for ($i = $length - 1; $i >= 0; $i--) {
+    $reversed .= $string[$i];
+}
+echo "Original string: \"$string\" <br>";
+echo "Reversed string: \"$reversed\"";
+?></textarea>
+        </div>
+        <div class="output-frame">
+            <h2>Output</h2>
+            <textarea readonly>
+Original string: "Hello PHP"
+Reversed string: "PHP olleH"
+            </textarea>
+        </div>
+    </div>
+
+    <div class="code-output" id="code-output-3">
+        <div class="code-frame">
+            <h2>4. Code</h2>
+            <textarea readonly>
+?php
+// Given string
+$string = "Hello PHP World";
+// Convert string to lowercase for uniform comparison
+$lowercaseString = strtolower($string);
+// Initialize vowel count
+$vowelCount = 0;
+// Define vowels
+$vowels = ['a', 'e', 'i', 'o', 'u'];
+// Loop through each character
+for ($i = 0; $i < strlen($lowercaseString); $i++) {
+    if (in_array($lowercaseString[$i], $vowels)) {
+        $vowelCount++;
+    }
+}
+echo "Given string: \"$string\" <br>";
+echo "Total number of vowels: $vowelCount";
+?</textarea>
+        </div>
+        <div class="output-frame">
+            <h2>Output</h2>
+            <textarea readonly>
+Given string: "Hello PHP World"
+Total number of vowels: 3
+            </textarea>
+        </div>
+    </div>
+
+    <div class="code-output" id="code-output-4">
+        <div class="code-frame">
+            <h2>5. Code</h2>
+            <textarea readonly><?php
+?php
+// Given string
+$string = "Hello PHP World";
+// Remove all white spaces
+$stringWithoutSpaces = str_replace(" ", "", $string);
+echo "Original string: \"$string\" <br>";
+echo "String without spaces: \"$stringWithoutSpaces\"";
+?></textarea>
+        </div>
+        <div class="output-frame">
+            <h2>Output</h2>
+            <textarea readonly>
+Original string: "Hello PHP World"
+String without spaces: "HelloPHPWorld"
+            </textarea>
+        </div>
+    </div>
+
+    <div class="code-output" id="code-output-5">
+        <div class="code-frame">
+            <h2>6. Code</h2>
+            <textarea readonly><?php
+// Program to swap two numbers without using a third variable
+$num1 = 10;
+$num2 = 20;
+echo "Before Swapping";
+echo "num1 = $num1 <br>";
+echo "num2 = $num2 <br>";
+// Swapping without third variable
+$num1 = $num1 + $num2;
+$num2 = $num1 - $num2;
+$num1 = $num1 - $num2;
+echo "After Swapping";
+echo "num1 = $num1 <br>";
+echo "num2 = $num2 <br>";
+?></textarea>
+        </div>
+        <div class="output-frame">
+            <h2>Output</h2>
+            <textarea readonly>
+Before Swapping
+num1 = 10
+num2 = 20
+
+After Swapping
+num1 = 20
+num2 = 10
+            </textarea>
+        </div>
+    </div>
+</div>
+
+<footer>
+
+    <br>
+    <a href="index.html">Back to Home</a>
+</footer>
+
+<script>
+function toggleCode(index) {
+    const codeOutput = document.getElementById(`code-output-${index}`);
+    const isVisible = codeOutput.style.display === "flex";
+    document.querySelectorAll('.code-output').forEach(output => output.style.display = "none");
+    if (!isVisible) codeOutput.style.display = "flex";
+}
+</script>
+
+</body>
+</html>

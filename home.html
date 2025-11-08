@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHP Programs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #1c1f24;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Top Bar */
+    .topbar {
+      background-color: #2a2f38;
+      width: 100%;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #00ffff;
+    }
+
+    .logo img {
+      width: 45px;
+      height: 45px;
+      margin-right: 10px;
+      border-radius: 8px;
+    }
+
+    .buttons a {
+      background-color: #2a2f38;
+      color: #ffffff;
+      padding: 10px 20px;
+      margin-left: 15px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+      text-decoration: none;
+    }
+
+    .buttons a:hover {
+      background-color: #00ffff;
+      color: #1c1f24;
+      transform: translateY(-2px);
+    }
+
+    /* Grid Layout for Boxes */
+   main {
+  width: 90%;
+  max-width: 800px;
+  margin: 2em auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  column-gap: 5px;   /* Much smaller horizontal gap */
+  row-gap: 30px;     /* Keep vertical gap same */
+  justify-items: center;
+}
+
+
+    .category {
+      width: 200px;
+      height: 200px;
+      background-color: #2a2f38;
+      color: #00ffff;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 15px rgba(0, 255, 255, 0.15);
+      border: 2px solid #00ffff33;
+    }
+
+    .category:hover {
+      transform: translateY(-8px);
+      background-color: #00ffff;
+      color: #1c1f24;
+      box-shadow: 0 10px 25px rgba(0, 255, 255, 0.5);
+    }
+
+    .category i {
+      font-size: 48px;
+      margin-bottom: 15px;
+      transition: transform 0.3s;
+    }
+
+    .category:hover i {
+      transform: scale(1.2);
+    }
+
+    .category h2 {
+      font-size: 1.2em;
+      font-weight: 600;
+    }
+
+    footer {
+      background-color: #2a2f38;
+      color: #aaa;
+      width: 100%;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 0.9em;
+      margin-top: 50px;
+    }
+
+    footer a {
+      color: #00ffff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+      }
+      .category {
+        width: 180px;
+        height: 180px;
+      }
+      .category i {
+        font-size: 42px;
+      }
+      .category h2 {
+        font-size: 1.1em;
+      }
+    }
+
+    @media (max-width: 600px) {
+      main {
+        grid-template-columns: 1fr; /* 1 column on small screens */
+      }
+      .category {
+        width: 150px;
+        height: 150px;
+      }
+      .category i {
+        font-size: 36px;
+      }
+      .category h2 {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <div class="topbar">
+    <div class="logo">
+      <img src="https://www.php.net/images/logos/new-php-logo.svg" alt="PHP Logo">
+      PHP
+    </div>
+    <div class="buttons">
+      <a href="index.html">Home</a>
+      <a href="home.html">Programs</a>
+    </div>
+  </div>
+
+  <!-- Main Content Grid -->
+  <main>
+    <!-- Row 1 -->
+    <div class="category" onclick="location.href='basicprogram.html'">
+      <i class="fas fa-th-list"></i>
+      <h2>Basic Programs</h2>
+    </div>
+    <div class="category" onclick="location.href='functions.html'">
+      <i class="fas fa-code"></i>
+      <h2>Functions</h2>
+    </div>
+    <div class="category" onclick="location.href='loops.html'">
+      <i class="fas fa-sync-alt"></i>
+      <h2>Loops</h2>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="category" onclick="location.href='strings.html'">
+      <i class="fas fa-font"></i>
+      <h2>Strings</h2>
+    </div>
+    <div class="category" onclick="location.href='Arrays.html'">
+      <i class="fas fa-th-list"></i>
+      <h2>Arrays</h2>
+    </div>
+    <div class="category" onclick="location.href='filehandling.html'">
+      <i class="fas fa-file-code"></i>
+      <h2>File Handling</h2>
+    </div>
+
+    <!-- Row 3 - Single box centered -->
+    <div class="category" style="grid-column: 2 / 3;" onclick="location.href='formhandling.html'">
+      <i class="fas fa-edit"></i>
+      <h2>Form Handling</h2>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 PHP Programs. All rights reserved.
+  </footer>
+
+</body>
+</html>
